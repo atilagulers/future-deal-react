@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import {Nav, Navbar, NavDropdown, Button} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 
-function NavigationBar() {
+function Header() {
   const navigate = useNavigate();
 
   return (
@@ -14,7 +14,7 @@ function NavigationBar() {
       variant="dark"
     >
       <Container>
-        <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/">Future Deal</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -37,6 +37,7 @@ function NavigationBar() {
               variant="link"
               className="me-3"
               style={{color: 'white', textDecoration: 'none'}}
+              onClick={(e) => navigate('/sign-in')}
             >
               Sign in
             </Button>
@@ -54,4 +55,4 @@ function NavigationBar() {
   );
 }
 
-export default NavigationBar;
+export default Header;

@@ -2,25 +2,13 @@ import {useState} from 'react';
 import {Form, Button, Container} from 'react-bootstrap';
 import axios from 'axios';
 
-function SignUpForm() {
-  const [username, setUsername] = useState('');
+function SignInForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async function (e) {
     try {
       e.preventDefault();
-
-      const response = await axios.post(
-        `${process.env.REACT_APP_API}/user/create`,
-        {
-          username,
-          email,
-          password,
-        }
-      );
-
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -32,15 +20,6 @@ function SignUpForm() {
       style={{minHeight: '80vh'}}
     >
       <Form style={{width: '100%', maxWidth: '400px'}}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label className="text-light">Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </Form.Group>
-
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="text-light">Email address</Form.Label>
           <Form.Control
@@ -69,11 +48,11 @@ function SignUpForm() {
           />
         </Form.Group>
         <Button onClick={handleSubmit} variant="primary" type="submit">
-          Sign Up
+          Sign In
         </Button>
       </Form>
     </Container>
   );
 }
 
-export default SignUpForm;
+export default SignInForm;

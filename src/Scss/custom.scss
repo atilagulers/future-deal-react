@@ -1,0 +1,16 @@
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+
+$font-family-base: 'Source Sans Pro', sans-serif !important;
+
+// Colors
+
+$custom-colors: (
+  'primary': #f0a500,
+
+  'dark': #1b1a17,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import '../../node_modules/bootstrap/scss/bootstrap';

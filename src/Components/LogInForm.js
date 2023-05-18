@@ -1,21 +1,17 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {Form, Button, Container, Col, Row, Image} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import DispatchContext from '../Contexts/DispatchContext';
 
-function SignInForm() {
+function LogInForm() {
+  const appDispatch = useContext(DispatchContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleClickGoogle = async function (e) {
-    try {
-      //console.log(`${process.env.REACT_APP_API}/auth/google`);
-      //const res = await axios.get(`${process.env.REACT_APP_API}/auth/google`);
-      window.open(`${process.env.REACT_APP_API}/auth/google`, '_self');
-    } catch (error) {
-      console.log(error);
-    }
+  const handleClickGoogle = function (e) {
+    window.open(`${process.env.REACT_APP_API}/auth/google`, '_self');
   };
 
   const handleClickSubmit = async function (e) {
@@ -61,7 +57,7 @@ function SignInForm() {
         </Form.Group>
         <Col className="d-grid gap-2">
           <Button onClick={handleClickSubmit} variant="primary" type="submit">
-            Sign In
+            Log In
           </Button>
           <Row className="my-3 align-items-center">
             <Col xs={5}>
@@ -89,4 +85,4 @@ function SignInForm() {
   );
 }
 
-export default SignInForm;
+export default LogInForm;

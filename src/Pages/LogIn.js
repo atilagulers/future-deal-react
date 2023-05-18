@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
-import SignInForm from '../Components/SignInForm';
+import LogInForm from '../Components/LogInForm';
 import PageWrapper from './PageWrapper';
 
-function SignIn() {
+function LogIn() {
   return (
     <PageWrapper title="Sign Up">
-      <SignInForm />
+      <LogInForm />
     </PageWrapper>
   );
 }
 
-export default SignIn;
+export default LogIn;

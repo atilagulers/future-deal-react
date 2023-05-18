@@ -1,8 +1,12 @@
-import Container from 'react-bootstrap/Container';
-import {Nav, Navbar, NavDropdown, Button} from 'react-bootstrap';
+import {useContext} from 'react';
+import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
+import StateContext from '../Contexts/StateContext';
+import HeaderLoggedIn from './HeaderLoggedIn';
+import HeaderLoggedOut from './HeaderLoggedOut';
 
 function Header() {
+  const appState = useContext(StateContext);
   const navigate = useNavigate();
 
   return (
@@ -32,23 +36,8 @@ function Header() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Nav>
-            <Button
-              variant="link"
-              className="me-3"
-              style={{color: 'white', textDecoration: 'none'}}
-              onClick={(e) => navigate('/sign-in')}
-            >
-              Sign in
-            </Button>
 
-            <Button
-              variant="outline-primary"
-              onClick={(e) => navigate('/sign-up')}
-            >
-              Sign Up
-            </Button>
-          </Nav>
+          {appState.loggedIn ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
         </Navbar.Collapse>
       </Container>
     </Navbar>
